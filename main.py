@@ -28,7 +28,9 @@ MAX_CONCURRENT = 50  # 最大并发 SSH 连接数
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
+    stream=__import__('sys').stderr,
 )
+logging.getLogger("asyncssh").setLevel(logging.WARNING)
 log = logging.getLogger(__name__)
 
 
